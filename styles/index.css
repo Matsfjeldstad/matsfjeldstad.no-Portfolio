@@ -45,11 +45,13 @@ header .logo {
   font-size: 48px;
   font-weight: 700;
   letter-spacing: -0.06em;
+  text-transform: lowercase;
 }
 header nav {
   display: flex;
   gap: 16px;
 }
+
 header nav a {
   font-size: 24px;
   color: #525252;
@@ -58,6 +60,34 @@ header nav a {
 header nav a.contact {
   color: orange;
   font-weight: 700;
+}
+.mobile-nav {
+  height: 0;
+  overflow: hidden;
+  transition: 0.4s ease-in;
+}
+.mobile-nav.active {
+  display: block;
+  height: 100vh;
+  width: 100%;
+  background-color: #2c5364;
+  position: relative;
+  color: #f5f5f5;
+  z-index: 1000000;
+}
+.mobile-nav .inner {
+  display: flex;
+  justify-content: center;
+}
+.mobile-nav nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-nav nav a {
+  color: #f5f5f5;
+  font-size: 36px;
 }
 .hero {
   height: 100vh;
@@ -80,7 +110,7 @@ header nav a.contact {
 }
 .hero .text {
   position: relative;
-  z-index: 5;
+  z-index: 3;
 }
 .hero h1 {
   font-size: 72px;
@@ -112,6 +142,57 @@ h3 span.highlight {
 }
 
 @media screen and (max-width: 769px) {
+  .inner {
+    padding: 0 20px;
+  }
+  .hamburger-menu {
+    width: 40px;
+    height: 5px;
+    background-color: #525252;
+    position: relative;
+    transition: 0.3s ease-in-out;
+  }
+  .hamburger-menu::after {
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: 5px;
+    background-color: #525252;
+    top: -10px;
+    left: 0;
+    transition: 0.3s ease-in-out;
+  }
+  .hamburger-menu::before {
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: 5px;
+    background-color: #525252;
+    top: 10px;
+    left: 0;
+    transition: 0.3s ease-in-out;
+  }
+  header.active .hamburger-menu {
+    transform: rotate(45deg);
+    background-color: #f5f5f5;
+  }
+  header.active .hamburger-menu::before {
+    transform: rotate(90deg);
+    top: 0;
+    background-color: #f5f5f5;
+  }
+  header.active .hamburger-menu::after {
+    transform: rotate(90deg);
+    top: 0;
+    background-color: #f5f5f5;
+  }
+  header .logo {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  header nav {
+    display: none;
+  }
   .img {
     height: 240px;
     width: 240px;
@@ -122,7 +203,7 @@ h3 span.highlight {
     padding-right: 270px;
   }
 }
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 570px) {
   .img {
     height: 200px;
     width: 200px;
@@ -134,7 +215,7 @@ h3 span.highlight {
     gap: 24px;
   }
   .hero {
-    height: 100%;
+    height: 100vh;
   }
   .hero .inner {
     display: flex;
@@ -149,7 +230,6 @@ h3 span.highlight {
   }
   .hero .text {
     position: relative;
-    z-index: 5;
     text-align: center;
   }
 }
@@ -159,7 +239,6 @@ h3 span.highlight {
 }
 .project-section {
   height: 100%;
-
   background: linear-gradient(90deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
   background: -webkit-linear-gradient(
     90deg#0f2027 0%,
@@ -169,25 +248,415 @@ h3 span.highlight {
   background-size: 100%;
 }
 
+.project-section .inner {
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+}
+
 .project {
   scroll-snap-align: center;
   height: 100vh;
   color: #f5f5f5;
-  background-color: #203a43;
+  display: flex;
+  align-items: center;
 }
+.project1 {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+  width: 100%;
+}
+.project-text {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  gap: 16px;
+  left: 150px;
+  top: 0;
+}
+.project-text h2 {
+  font-size: 98px;
+  margin: 0;
+}
+.project-text p {
+  font-size: 24px;
+  max-width: 300px;
+  font-weight: 300;
+  color: #cbcaca;
+  line-height: 1.5;
+  margin: 0;
+}
+.project-text a {
+  width: fit-content;
+}
+.project-text button {
+  border-radius: 50px;
+  height: 64px;
+  width: 250px;
+  font-size: 18px;
+  font-weight: 800;
+  border: orange 2px solid;
+  background: none;
+  color: orange;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.project-text button:hover {
+  background: orange;
+  color: #f5f5f5;
+}
+.thumb-nail {
+  width: 60%;
+  height: 420px;
+  background-color: #2c5364;
+  box-shadow: 0 4.8px 3.6px rgba(0, 0, 0, 0.063),
+    0 13.1px 10px rgba(0, 0, 0, 0.09), 0 31.7px 24.1px rgba(0, 0, 0, 0.117),
+    0 105px 80px rgba(0, 0, 0, 0.18);
+  background-position: center;
+  background-size: cover;
+}
+.jobless .thumb-nail {
+  background-image: url(/img/jobless-thumb.jpg);
+}
+.coinEnigma .thumb-nail {
+  background-image: url(/img/coinenigma.jpg);
+}
+.Frinans .thumb-nail {
+  background-image: url(/img/frinans.jpg);
+}
+.RainyDays .thumb-nail {
+  background-image: url(/img/rainyDays.jpg);
+}
+.CSM .thumb-nail {
+  background-image: url(/img/CMS.jpg);
+}
+.project-number {
+  position: absolute;
+  bottom: 0;
+  right: -40px;
+  font-size: 140px;
+  font-weight: bold;
+  margin: 0;
+}
+
+@media screen and (min-width: 1080px) {
+  .project-text h2 {
+    font-size: 120px;
+    margin: 0;
+  }
+}
+
 .about-section {
   scroll-snap-align: start;
-  height: 200vh;
+  height: 100%;
   overflow: hidden;
+  background-color: #f5f5f5;
+  color: #565656;
+  padding: 80px 0 160px 0;
+}
+.about-section .inner {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
 .about-section h2 {
-  font-size: 240px;
+  font-size: 160px;
+  text-shadow: 0px 9px 3.6px rgba(0, 0, 0, 0.063),
+    0px 13.1px 10px rgba(0, 0, 0, 0.09), 0px 31.7px 24.1px rgba(0, 0, 0, 0.117),
+    0px 105px 80px rgba(0, 0, 0, 0.18);
+  color: #f5f5f5;
+  margin: 0;
 }
 
+.about-text {
+  max-width: 800px;
+}
+
+.about-text p {
+  font-size: 18px;
+  line-height: 200%;
+  text-transform: capitalize;
+  letter-spacing: 20%;
+}
+.about-text span {
+  color: orange;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.skills-section h4 {
+  margin: 0;
+  font-size: 32px;
+}
+.skills-section p {
+  margin: 0;
+  letter-spacing: 20%;
+  font-weight: 18;
+}
+.skills-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  /* border: 2px red solid; */
+  font-weight: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+  transition: 0.3s;
+}
+
+.skill svg {
+  height: 32px;
+  width: 32px;
+  fill: #565656;
+}
+.skill:hover {
+  color: orange;
+  transform: scale(110%);
+}
+.skill:hover svg {
+  fill: orange;
+}
 .contact-section {
-  height: 200vh;
+  height: 100%;
   scroll-snap-align: start;
   background: linear-gradient(90deg, #152331 0%, #000000 100%);
   color: white;
+  padding: 80px 0;
+  overflow: hidden;
+}
+.contact-section .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+.contact-hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: fit-content;
+}
+.contact-hero h2 {
+  margin: 0;
+  width: fit-content;
+  text-align: center;
+  font-size: 120px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0px 3.4px 2.7px rgba(0, 0, 0, 0.081),
+    0px 8.7px 6.9px rgba(0, 0, 0, 0.115), 0px 17.7px 14.2px rgba(0, 0, 0, 0.145),
+    0px 36.5px 29.2px rgba(0, 0, 0, 0.179), 0px 100px 80px rgba(0, 0, 0, 0.26);
+}
+.coffee-mug {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; /* Need a specific value to work */
+}
+.coffee-mug img {
+  width: 500px;
+  position: absolute;
+}
+.cup-handle {
+  z-index: 10;
+}
+
+.coffee-splash {
+  transform: translateY(0px);
+}
+.form-section {
+  height: 90vh;
+  max-width: 1100px;
+}
+.form-section h3,
+.social-media-mail-section h3 {
+  font-size: 48px;
+  text-align: center;
+  margin: 0;
+}
+.form-section h3 span {
+  color: orange;
+}
+.form-section p,
+.social-media-mail-section p {
+  font-size: 24px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+.name-email-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  width: 100%;
+}
+.name-email-container div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+form input,
+form textarea {
+  padding: 12px 0 12px 0;
+  background: none;
+  border: 0;
+  color: #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+}
+form textarea {
+  border-left: 1px solid #f5f5f5;
+  padding-left: 12px;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+.message-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+}
+form button {
+  border-radius: 50px;
+  width: fit-content;
+  padding: 16px 40px;
+  font-size: 18px;
+  border: orange 2px solid;
+  background: none;
+  color: orange;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.social-media-mail-section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+.social-media-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.social-media {
+  display: flex;
+  gap: 16px;
+  font-size: 18px;
+  align-items: center;
+  color: #f5f5f5;
+}
+.social-media svg {
+  width: 32px;
+  fill: #f5f5f5;
+}
+@media screen and (max-width: 769px) {
+  header.active {
+    background-color: #2c5364;
+  }
+  header.active .logo {
+    color: #f5f5f5;
+  }
+
+  .inner {
+    padding: 0px 20px;
+  }
+  .project1 {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    height: 100%;
+    padding: 40px 0 40px 0px;
+  }
+  .project-text {
+    position: static;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .project-text h2 {
+    font-size: 48px;
+  }
+  .project-text p {
+    font-size: 18px;
+  }
+  .project-number {
+    display: none;
+  }
+  .project-text button {
+    border-radius: 50px;
+    height: 40px;
+    width: 150px;
+  }
+  .thumb-nail {
+    height: 100%;
+    width: 100%;
+    max-height: 400px;
+    max-width: 400px;
+  }
+  .about-section h2 {
+    font-size: 80px;
+    text-align: center;
+  }
+
+  .form-section h3,
+  .social-media-mail-section h3 {
+    font-size: 36px;
+    line-height: 1.5;
+  }
+  .form-section p,
+  .social-media-mail-section p {
+    font-size: 18px;
+    line-height: 200%;
+    text-align: center;
+  }
+  .coffee-mug {
+    width: 100%;
+  }
+  .coffee-mug img {
+    width: 400px;
+  }
+  .contact-hero h2 {
+    font-size: 90px;
+  }
+  .social-media-container {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 375px) {
+  .coffee-mug img {
+    width: 250px;
+  }
+  .contact-hero h2 {
+    font-size: 74px;
+  }
 }
