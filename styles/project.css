@@ -1,6 +1,6 @@
 .hero {
   height: 100vh;
-  background-color: rgb(33, 36, 36);
+  background-color: #212424;
   display: grid;
   grid-template-rows: 1.4fr 1fr;
 }
@@ -32,7 +32,7 @@
   grid-template-rows: 50vh 50vh;
 }
 .stats-mockup .stats {
-  background-color: #282828;
+  background-color: #212424;
   margin: 0;
   color: #fff;
 }
@@ -57,7 +57,7 @@
 .container {
   position: relative;
   width: fit-content;
-  top: -72px;
+  top: -50%;
 }
 .mackbook-mockup {
   display: flex;

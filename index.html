@@ -16,7 +16,7 @@
     <title>Mats Fjeldstad's Portfolio</title>
   </head>
   <body>
-    <header class="active">
+    <header class="">
       <div class="inner">
         <div class="logo">fjeldstad.</div>
         <div class="hamburger-menu"></div>
@@ -27,19 +27,19 @@
           <a href="#contact" class="contact">Contact</a>
         </nav>
       </div>
-      <div class="mobile-nav active">
+      <div class="mobile-nav">
         <div class="inner">
           <nav>
             <a href="#">Home</a>
             <a href="#projects">Projects</a>
-            <a href="#about">About me</a>
+            <a href="l#about">About me</a>
             <a href="#contact" class="contact">Contact</a>
           </nav>
         </div>
       </div>
     </header>
     <main>
-      <section class="hero">
+      <section class="hero" data-theme="dark" id="hero">
         <div class="inner">
           <div class="hero-content">
             <div class="text">
@@ -55,7 +55,7 @@
           <div class="scroll-cta">Scroll down for my projects</div>
         </div>
       </section>
-      <div class="project-section" id="projects">
+      <section class="project-section" id="projects" data-theme="light">
         <div class="inner">
           <div class="project jobless">
             <div class="project1">
@@ -133,8 +133,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <section id="about" class="about-section">
+      </section>
+      <section id="about" class="about-section" data-theme="dark">
         <div class="inner">
           <h2>ABOUT ME.</h2>
           <div class="about-text">
@@ -275,7 +275,7 @@
           </div>
         </div>
       </section>
-      <section id="contact" class="contact-section">
+      <section id="contact" class="contact-section" data-theme="light">
         <div class="inner">
           <div class="contact-hero">
             <h2>Lets grab a Coffee!</h2>

@@ -1,3 +1,11 @@
+.logo.dark,
+.dark a {
+  color: #525252;
+}
+.light a,
+.logo.light {
+  color: #f5f5f5;
+}
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
