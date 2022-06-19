@@ -29,36 +29,43 @@ navLinks.forEach((link) => {
   };
 });
 
-let headerScrollOptions = {
-  rootMargin: "80px",
-  threshold: 0,
-};
-
-const onIntersectHeader = (entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) {
-      return;
-    } else {
-      console.log(entry.target.dataset.theme);
-      nav.class = "";
-      if (entry.target.dataset.theme === "light") {
-        nav.classList.remove("dark");
-        logo.classList.remove("dark");
-      } else {
-        nav.classList.remove("light");
-        logo.classList.remove("light");
-      }
-      nav.classList.add(`${entry.target.dataset.theme}`);
-      logo.classList.add(`${entry.target.dataset.theme}`);
-    }
-  });
-};
-
-let headerObserver = new IntersectionObserver(
-  onIntersectHeader,
-  headerScrollOptions,
+const projectSectionObserver = new IntersectionObserver(
+  (enrties) => {
+    enrties.forEach((entry) => {
+      //   console.log(entry);
+      header.classList.toggle("light", entry.isIntersecting);
+      logo.classList.toggle("light", entry.isIntersecting);
+      hamburgerMenu.classList.toggle("light", entry.isIntersecting);
+    });
+  },
+  {
+    // rootMargin: "80px",
+    threshold: 0.166,
+  },
 );
-headerObserver.observe(aboutUsSection);
-headerObserver.observe(contactSection);
-headerObserver.observe(heroSection);
-headerObserver.observe(projcetSection);
+
+projectSectionObserver.observe(projcetSection);
+
+const options = {};
+const animatingElementsLeft = document.querySelectorAll(".from-left");
+const moveInObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      console.log(entry);
+      if (!entry.isIntersecting) {
+        return;
+      }
+      if (entry.isIntersecting) {
+        entry.target.classList.toggle("anim-left", entry.isIntersecting);
+      }
+
+      // entry.target.classList.toggle("from-left", entry.isIntersecting);
+    });
+  },
+  { rootMargin: "-80px" },
+);
+
+animatingElementsLeft.forEach((element) => {
+  console.log(element);
+  moveInObserver.observe(element);
+});
