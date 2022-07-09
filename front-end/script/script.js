@@ -32,7 +32,6 @@ navLinks.forEach((link) => {
 const projectSectionObserver = new IntersectionObserver(
   (enrties) => {
     enrties.forEach((entry) => {
-      //   console.log(entry);
       header.classList.toggle("light", entry.isIntersecting);
       logo.classList.toggle("light", entry.isIntersecting);
       hamburgerMenu.classList.toggle("light", entry.isIntersecting);
@@ -51,7 +50,6 @@ const animatingElementsLeft = document.querySelectorAll(".from-left");
 const moveInObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      console.log(entry);
       if (!entry.isIntersecting) {
         return;
       }
@@ -66,6 +64,28 @@ const moveInObserver = new IntersectionObserver(
 );
 
 animatingElementsLeft.forEach((element) => {
-  console.log(element);
   moveInObserver.observe(element);
 });
+
+const coffeeMug = document.querySelector(".coffee-mug");
+const coffeeSplash = document.querySelector(".coffee-splash");
+
+const coffeecupObserverFunction = (entries) => {
+  entries.forEach((entry) => {
+    entry.target.style.transform = `translateX(0px)`;
+    window.addEventListener("scroll", function (e) {
+      console.log(entry.target.style.transform);
+      entry.target.style.transform = `translateY(${
+        (window.pageYOffset - 5000) * -0.05
+      }px)`;
+    });
+  });
+};
+
+const coffeecupObserver = new IntersectionObserver(
+  coffeecupObserverFunction,
+  {},
+);
+
+// coffeecupObserver.observe(coffeeMug);
+coffeecupObserver.observe(coffeeSplash);
