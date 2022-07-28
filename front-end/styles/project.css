@@ -75,7 +75,7 @@
 }
 .big-img {
   height: 600vh;
-  background-image: url(/img/JOBLESSCOLAGE-mobile.jpg);
+  background-image: url(../img/JOBLESSCOLAGE-mobile.jpg);
   background-position: center;
   background-size: cover;
 }
