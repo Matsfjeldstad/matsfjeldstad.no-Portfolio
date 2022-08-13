@@ -470,6 +470,7 @@ h3 span.highlight {
   height: 32px;
   width: 32px;
   fill: #565656;
+  transition: 0.5s;
 }
 .skill:hover {
   color: orange;
