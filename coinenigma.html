@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/nomalize.css" />
+    <link rel="stylesheet" href="./styles/root.css" />
+    <link rel="stylesheet" href="./styles/project.css" />
+    <script src="./script/project-page.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body class="coinenigma">
+    <header class="">
+      <div class="inner">
+        <div class="logo">fjeldstad.</div>
+        <div class="hamburger-menu"></div>
+
+        <nav>
+          <a href="index.html" class="regNavLink">Home</a>
+          <a href="index.html#projects" class="regNavLink">Projects</a>
+          <a href="index.html#about" class="regNavLink">About me</a>
+          <a href="index.html#contact" class="contact">Contact</a>
+        </nav>
+      </div>
+      <div class="mobile-nav">
+        <div class="inner">
+          <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#about">About me</a>
+            <a href="index.html#contact" class="contact">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-thumbnail"></div>
+        <div class="hero-text">
+          <div class="inner">
+            <div class="text">
+              <a href="https://coinenigma.netlify.app/"><h1>coinENIGMA</h1></a>
+              <p>Cryptocurrency ranking site</p>
+            </div>
+            <a href="#case-section" class="scroll-cta">
+              Scroll Down
+              <img src="/img/icons/chevron-down-solid.svg" alt="chevron down" />
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="case-section" id="case-section">
+        <div class="inner">
+          <img src="./img/hex-logo.png" alt="" />
+          <div class="text">
+            <h3>The Case</h3>
+            <p>
+              The case was to create a website using an api to fetch the data I
+              wanted to be displayed. I went for a cryptocurrency ranking page
+              to show the different cryptos based on market cap.
+            </p>
+            <p>
+              I ended up using coinranking.com's api to fetch the data I needed.
+              With this I also made a searchbar where you can get any spesific
+              crypto that are listed at coinranking.com up, and using query
+              params to display them on a spesific page.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="big-img"></section>
+    </main>
+  </body>
+</html>
