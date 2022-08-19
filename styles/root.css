@@ -34,7 +34,7 @@ header nav a {
   font-size: 24px;
   color: #525252;
   text-decoration: none;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 header nav a.contact {
   color: orange;
@@ -45,7 +45,7 @@ header nav a.contact {
   height: 5px;
   background-color: #525252;
   position: relative;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 .hamburger-menu::after {
   position: absolute;
@@ -55,7 +55,7 @@ header nav a.contact {
   background-color: #525252;
   top: -10px;
   left: 0;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 .hamburger-menu::before {
   position: absolute;
@@ -65,7 +65,7 @@ header nav a.contact {
   background-color: #525252;
   top: 10px;
   left: 0;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 header.active .hamburger-menu {
   transform: rotate(45deg);
@@ -95,7 +95,7 @@ header .logo {
 .mobile-nav {
   height: 0;
   overflow: hidden;
-  transition: 0.4s ease-in;
+  transition: 0.2s ease-in;
 }
 .mobile-nav.active {
   display: block;
