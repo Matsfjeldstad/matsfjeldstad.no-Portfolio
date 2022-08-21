@@ -50,19 +50,19 @@ header nav a {
   background-image: url(../img/CMS.jpg);
 }
 .semester-project .big-img {
-  background-image: url(../img/cms-collage-desktop.jpg);
+  background-image: url(../img/cms-collage.jpg);
 }
 .frinans .hero-thumbnail {
   background-image: url(../img/frinans.jpg);
 }
 .frinans .big-img {
-  background-image: url(../img/frinans-colage-desktop.jpg);
+  background-image: url(../img/frinans-mobile-colage.jpg);
 }
 .coinenigma .hero-thumbnail {
   background-image: url(../img/coinenigma.jpg);
 }
 .coinenigma .big-img {
-  background-image: url(../img/coinenigma-collage.jpg);
+  background-image: url(../img/coinenigma-collage-mob.jpg);
 }
 .rainy-days .hero-thumbnail {
   background-image: url(../img/rainyDays.jpg);
@@ -208,6 +208,15 @@ h3 {
   .big-img {
     height: 200vh;
     background-image: url(../img/JOBLESSCOLAGE.jpg);
+  }
+  .semester-project .big-img {
+    background-image: url(../img/cms-collage-desktop.jpg);
+  }
+  .frinans .big-img {
+    background-image: url(../img/frinans-colage-desktop.jpg);
+  }
+  .coinenigma .big-img {
+    background-image: url(../img/coinenigma-collage.jpg);
   }
   .execution-section .inner,
   .case-section .inner {
